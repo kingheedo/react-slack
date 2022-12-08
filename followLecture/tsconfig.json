@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true, // import * as React from 'react'; => import React from 'react'; 로 쓸 수 가 있다.
+    "sourceMap": true, //에러났을 때 에러가 난 위치를 찾아가기 편하기 때문에 켜놓는다.
+    "lib": ["ES2020", "DOM"],
+    "jsx": "react", //jsx가 react가 아닌 다른 프로그래밍에서도 사용할 수 있기 떄문에 react에서 사용한다고 설정.
+    "module": "esnext", //최신모듈을 쓰겠다. import export 사용
+    "moduleResolution": "Node", //최신 모듈을 노드가 인식할수 있게 하겠다.
+    "target": "es5", //lib에 해당하는 es2020으로 작성하더라도 target에 해당하는 버전으로 변환하겠다.
+    "strict": true, //타입체킹 엄격함
+    "resolveJsonModule": true, //import json 하는것 허락하겠다.
+    "baseUrl": ".",
+    "paths": {
+      "@apis/*": ["apis/*"],
+      "@hooks/*": ["hooks/*"],
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"],
+      "@pages/*": ["pages/*"],
+      "@utils/*": ["utils/*"],
+      "@typings/*": ["typings/*"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "Node",
+      "target": "es5",
+      "esModuleInterop": true
+    }
+  }
+}
