@@ -1,18 +1,22 @@
-import React, { FC, PropsWithChildren } from 'react'
+import React, { CSSProperties, FC, PropsWithChildren } from 'react'
 import { CloseModalButton, CreateMenu } from './styles'
 
 interface IProps {
-    onCloseModal: () => void;
+    show?: boolean;
+    onCloseModal: (e: React.MouseEvent) => void;
     closeButton?: boolean;
+    style?: CSSProperties;
 }
-const Menu: FC<IProps> = ({ children, onCloseModal }) => {
+const Menu: FC<IProps> = ({ children, show, onCloseModal, style }) => {
     const stopPropagation = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
     }
-
+    if (!show) {
+        return null;
+    }
     return (
         <CreateMenu onClick={onCloseModal}>
-            <div onClick={stopPropagation}>
+            <div style={style} onClick={stopPropagation}>
                 <CloseModalButton onClick={onCloseModal}>&times;</CloseModalButton>
                 {children}
             </div>
